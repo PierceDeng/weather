@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: sky
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+---
+spring:
+  profiles: dev
+  #################################################
+  ##############   DataSource Config  #############
+  #################################################
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/weather?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+    druid:
+      initial-size: 8
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runsMillis: 60000
+      min-evictable-idle-timeMillis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+server:
+  port: 8888
+
+
+---
+spring:
+  profiles: prd
+
+server:
+  port: 8999
