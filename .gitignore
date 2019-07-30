@@ -9,6 +9,7 @@ core/src/test
 *.iws
 *.iml
 *.ipr
+out
 
 
 
