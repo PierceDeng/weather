@@ -6,6 +6,7 @@ import com.zzzfyrw.repository.entity.UserEntity;
 
 public interface LoginService extends IService<UserEntity> {
 
-    UserEntity selectById(Long id);
+    String auth(String code);
+
 
 }

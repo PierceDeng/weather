@@ -1,0 +1,10 @@
+<!--pages/component/navtitle/title.wxml-->
+
+<view class="nav">
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+        {{title}}
+    </view>
+  </view>
+
+</view>

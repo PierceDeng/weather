@@ -1,12 +1,15 @@
 {
   "pages": [
+    "pages/component/navtitle/title",
     "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "新发现",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+
   },
   "sitemapLocation": "sitemap.json"
 }
