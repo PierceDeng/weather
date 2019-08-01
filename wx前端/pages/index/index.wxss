@@ -1,1 +1,57 @@
 /**index.wxss**/
+
+Page{
+  background-color: #F0FFFF;
+  z-index: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.weather-bg{
+  width: calc(100%-20rpx);
+  height: 600rpx;
+  background-color: #48D1CC;
+  margin: 10rpx 10rpx 10rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.weather-location{
+  padding: 20rpx 0 0 20rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.weather-address{
+  padding-left: 8rpx;
+  font-size: 26rpx;
+}
+
+.weather-location image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.today{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F8F8FF;
+}
+.today-icon{
+  height: 120px;
+  padding-left: 320rpx;
+  font-size: 180rpx;
+  position: absolute;
+}
+
+.today-tem{
+  line-height: 240rpx;
+  opacity: 0.95;
+  font-size: 220rpx;
+ 
+}
+
+.tem{
+ font-family: Helvetica, Tahoma, Arial;
+}

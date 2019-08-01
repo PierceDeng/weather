@@ -1,10 +1,10 @@
 <!--pages/component/navtitle/title.wxml-->
-
-<view class="nav">
+<view>
   <view class='nav bg-white' style='height:{{navH}}px'>
     <view class='nav-title'>
-        {{title}}
+      {{title}}
+      <image src='{{left}}' mode='aspectFit'
+       class='back' bindtap="clickImg"></image> 
     </view>
   </view>
-
 </view>

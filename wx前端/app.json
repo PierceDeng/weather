@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/component/navtitle/title",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/component/navtitle/title"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

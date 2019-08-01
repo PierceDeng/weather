@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "nav-title":"/pages/component/navtitle/title"
+  }
 }

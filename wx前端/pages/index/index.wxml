@@ -1,4 +1,26 @@
 <!--index.wxml-->
-<view class="container">
+<nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
+
+<view>
+
+  <view class="weather-bg">
+    <view class="weather-location">
+      <image src="/img/icon/location.png"></image>
+      <view class="weather-address">{{localtion}}</view>
+    </view>
+    <view class="today tem">
+      <view class="today-tem">{{todayTem}}</view>
+      <view class="today-icon">°</view>
+    </view>
+    
+
+
+  </view>
+
+    
+
+
+
 
 </view>
+
