@@ -5,8 +5,8 @@ import com.zzzfyrw.repository.entity.UserTokenEntity;
 
 public interface UserTokenService extends IService<UserTokenEntity> {
 
-    String insert(Long userId);
+    String insert(Long userId)throws Exception;
 
-    Long queryUserIdByToken(String token);
+    Long queryUserIdByToken(String token)throws Exception;
 
 }

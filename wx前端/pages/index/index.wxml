@@ -1,7 +1,8 @@
 <!--index.wxml-->
-<nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
-
 <view>
+  <nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
+
+  <scroll-view scroll-y="true" style="height: 1500px">
 
   <view class="weather-bg">
     <view class="weather-location">
@@ -12,15 +13,56 @@
       <view class="today-tem">{{todayTem}}</view>
       <view class="today-icon">°</view>
     </view>
-    
-
-
+    <view class="weather-show">
+      <view class="weather-left">{{todayWeather}}</view>
+      <view class="weather-y"></view>
+      <image src="{{weatherIcon}}"></image>
+    </view>
+    <view class="weather-show">
+      <view class="weather-left">空气指数</view>
+      <view class="weather-y"></view>
+      <view class="weather-sky"><span>{{todaySkyNumber}} {{todaySky}}</span></view>
+    </view>
+    <view class="weather-info" >
+      <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{todayCloudSpeed}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
+    </view>
   </view>
 
-    
+  <view class="simple-weather">
+    <view class="simple-first">
+      <view>今天
+        <view class="simple-tem">{{todayTemMax}}°-{{todayTemMin}}°</view>
+      </view>
+      <view class="simple-line"></view>
+      <view>
+          明天
+        <view class="simple-tem">{{weekDay[0].maxTem}}°-{{weekDay[0].minTem}}°</view>
+      </view>
+    </view>
+    <view class="simple-second">
+      <view class="simple-content">
+        <span>{{todayWeather}}</span>
+        <image class="simple-img" src="{{weatherIcon}}"></image>
+      </view>
+      <view class="simple-line"></view>
+      <view class="simple-content">
+        <span>{{weekDay[0].weather}}</span>
+        <image class="simple-img" src="/img/weather/{{weekDay[0].icon}}.png"></image>
+      </view>
+    </view>
+  </view>
 
+  <view class="weather-time-info">
+    <view class="time-info-title">小时预报</view>
+    <view class="time-info-line"></view>
+  </view>
+
+
+</scroll-view>
 
 
 
 </view>
+
+
 

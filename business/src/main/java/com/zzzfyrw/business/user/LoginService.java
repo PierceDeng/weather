@@ -6,7 +6,7 @@ import com.zzzfyrw.repository.entity.UserEntity;
 
 public interface LoginService extends IService<UserEntity> {
 
-    String auth(String code);
+    String auth(String code)throws Exception;
 
 
 }

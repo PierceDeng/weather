@@ -31,7 +31,7 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, UserEntity> implem
     private UserTokenService tokenService;
 
     @Override
-    public String auth(String code) {
+    public String auth(String code)throws Exception {
 
         WxAuth auth = WxApiUtil.requestAuth(code);
         String token = null;

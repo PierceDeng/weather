@@ -5,25 +5,27 @@ Page{
   z-index: 0;
   padding: 0;
   margin: 0;
+  
 }
 
 .weather-bg{
   width: calc(100%-20rpx);
-  height: 600rpx;
+  height: 730rpx;
   background-color: #48D1CC;
-  margin: 10rpx 10rpx 10rpx 10rpx;
+  margin: 10rpx 10rpx 0rpx 10rpx;
   border-radius: 10rpx;
 }
 
 .weather-location{
-  padding: 20rpx 0 0 20rpx;
+  width: 40%;
+  padding: 20rpx 0 150rpx 20rpx;
   display: flex;
   align-items: center;
   position: relative;
 }
 .weather-address{
   padding-left: 8rpx;
-  font-size: 26rpx;
+  font-size: 30rpx;
 }
 
 .weather-location image{
@@ -55,3 +57,139 @@ Page{
 .tem{
  font-family: Helvetica, Tahoma, Arial;
 }
+
+.weather-show{
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  align-content: center;
+}
+.weather-show image{
+  margin-top: -21rpx;
+  width: 95rpx;
+  height: 80rpx;
+}
+
+.weather-left{
+  width: 46.5%;
+  line-height: 60rpx;
+  text-align: right;
+  color: #00008B;
+  font-size: 32rpx;
+}
+
+.weather-y{
+  display: flex;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  height: 60rpx;
+  border-right: 4rpx solid #fff;
+} 
+
+.weather-sky{
+  margin-top: 10rpx;
+  width: 100rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #90EE90;
+}
+.weather-sky span{
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.weather-info{
+  margin-top: 40rpx;
+  text-align: center;
+  color: #00008B;
+  font-size: 28rpx;
+}
+
+
+.simple-weather{
+  width: calc(100%-20rpx);
+  height: 150rpx;
+  background-color: #E0FFFF;
+  margin: 5rpx 10rpx 0rpx 10rpx;
+  border-radius: 10rpx;
+
+}
+
+.simple-first{
+  display: flex;
+  align-items: center;
+  line-height: 75rpx;
+  font-size: 32rpx;
+  
+}
+
+.simple-first :nth-child(1){
+  margin-left: 20rpx;
+  width: 46.5%;
+}
+.simple-first :nth-child(3){
+  margin-left: 20rpx;
+  width: 46.5%;
+}
+.simple-tem{
+  margin-right: 20rpx;
+  float: right;
+  text-align: right;
+}
+.simple-line{
+  height: 75rpx;
+  border-right: 2rpx solid #fff;
+}
+
+.simple-second{
+  display: flex;
+  height: 75rpx;
+  align-items: center;
+  font-size: 26rpx;
+
+
+}
+
+.simple-content{
+  margin-left: 20rpx;
+  display: flex;
+  width: 46.5%;
+}
+
+.simple-second span{
+  line-height: 75rpx;
+  width: 230rpx;
+}
+
+.simple-img{
+  margin-top: -8rpx;
+  width: 80rpx;
+  height: 75rpx;
+}
+
+.weather-time-info{
+  background-color: #F5F5F5;
+  width: calc(100% - 20rpx);
+  height: 500rpx;
+  margin: 5rpx 10rpx 0 10rpx;
+  border-radius: 10rpx;
+}
+
+.time-info-title{
+  width: 150rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx 0 20rpx 20rpx;
+}
+
+.time-info-line{
+  width: 100%;
+  border-bottom: 1px solid #C0C0C0;
+
+}
+
+
+

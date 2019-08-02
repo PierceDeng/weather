@@ -2,7 +2,11 @@ package com.zzzfyrw.common.response;
 
 public enum ErrEnum {
 
-    授权异常(10001,"授权异常，请检查网络设置或稍后重试");
+    授权异常(10001,"请检查网络设置或稍后重试"),
+
+
+
+    未知异常(40001,"系统错误，请联系客服");
 
     private String msg;
     private int code;

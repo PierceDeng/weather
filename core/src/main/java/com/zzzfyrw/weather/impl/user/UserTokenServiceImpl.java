@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserTokenEntity> implements UserTokenService {
 
     @Override
-    public String insert(Long userId) {
+    public String insert(Long userId)throws Exception {
         UserTokenEntity entity = new UserTokenEntity();
         entity.setUserId(userId);
         entity.setToken(TokenUtil.getToken()+userId);
@@ -26,7 +26,7 @@ public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken
     }
 
     @Override
-    public Long queryUserIdByToken(String token) {
+    public Long queryUserIdByToken(String token)throws Exception {
         UserTokenEntity entity = this.baseMapper.selectOne(new QueryWrapper<UserTokenEntity>()
                 .eq("token", token)
                 .ge("create_time", LocalDateTime.now().minusDays(30)));
