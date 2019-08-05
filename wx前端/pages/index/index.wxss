@@ -1,16 +1,17 @@
 /**index.wxss**/
 
 Page{
-  background-color: #F0FFFF;
+  background-color: #Fff;
   z-index: 0;
   padding: 0;
   margin: 0;
-  
+  height: 100%;
+  width: 100%;
 }
 
 .weather-bg{
   width: calc(100%-20rpx);
-  height: 730rpx;
+  height: 700rpx;
   background-color: #48D1CC;
   margin: 10rpx 10rpx 0rpx 10rpx;
   border-radius: 10rpx;
@@ -18,7 +19,7 @@ Page{
 
 .weather-location{
   width: 40%;
-  padding: 20rpx 0 150rpx 20rpx;
+  padding: 20rpx 0 130rpx 20rpx;
   display: flex;
   align-items: center;
   position: relative;
@@ -173,13 +174,14 @@ Page{
 .weather-time-info{
   background-color: #F5F5F5;
   width: calc(100% - 20rpx);
-  height: 500rpx;
+  height: 450rpx;
   margin: 5rpx 10rpx 0 10rpx;
   border-radius: 10rpx;
 }
 
 .time-info-title{
   width: 150rpx;
+  line-height: 40rpx;
   font-size: 32rpx;
   font-weight: bold;
   padding: 20rpx 0 20rpx 20rpx;
@@ -190,6 +192,127 @@ Page{
   border-bottom: 1px solid #C0C0C0;
 
 }
+
+.canvas-charts{
+  width: 100%;
+  height: 380rpx;
+}
+
+.weather-week-info{
+  width: calc(100% - 20rpx);
+  height: 650rpx;
+  margin: 10rpx 10rpx 5rpx 10rpx;
+  border-radius: 10rpx;
+  background-color: #F8F8FF;
+  
+}
+
+.weather-week-scroll{
+  display: flex;
+  white-space: nowrap;
+}
+
+.week-title view{
+  display: inline-block;
+  width: 80rpx;
+  padding: 20rpx 50rpx 10rpx 50rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.week-date view{
+  display: inline-block;
+  width: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 5rpx 50rpx 10rpx 50rpx;
+}
+.week-weather view{
+  display: inline-block;
+  width: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  padding: 10rpx 50rpx 10rpx 50rpx;
+}
+
+.week-icon image{
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 50rpx 10rpx 50rpx;
+  width: 80rpx;
+  height: 65rpx;
+}
+
+.week-max-tem view{
+  display: inline-block;
+  width: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 5rpx 50rpx 10rpx 50rpx;
+}
+
+.week-line view{
+  display: inline-block;
+  height: 20rpx;
+  margin: 5rpx 99rpx 5rpx 80rpx;
+  text-align: center;
+  border-left: 2rpx solid #000;
+}
+
+.week-min-tem view{
+  display: inline-block;
+  width: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 0rpx 50rpx 10rpx 50rpx;
+}
+
+.weather-life-info{
+  width: calc(100% - 20rpx);
+  height: 600rpx;
+  margin: 10rpx 10rpx 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.life-area{
+  display: flex;
+  widows: 100%;
+}
+
+.life-skin{
+  width: calc(100% / 3);
+  padding-top: 10rpx;
+  border: 1px solid #F5F5F5;
+  margin: -1px 0 0 -1px
+}
+.life-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.life-text{
+  text-align: center;
+  font-size: 36rpx;
+  padding: 0 0 10rpx 0;
+}
+.life-number{
+  text-align: center;
+  font-size: 26rpx;
+  color: #A9A9A9;
+  padding: 0 0 20rpx 0;
+}
+
+.weather-life-info image{
+  padding: 20rpx 0 20rpx 0;
+  width: 70rpx;
+  height: 70rpx;
+
+}
+
+
+
+
 
 
 

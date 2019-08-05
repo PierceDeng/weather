@@ -2,65 +2,209 @@
 <view>
   <nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
 
-  <scroll-view scroll-y="true" style="height: 1500px">
-
-  <view class="weather-bg">
-    <view class="weather-location">
-      <image src="/img/icon/location.png"></image>
-      <view class="weather-address">{{localtion}}</view>
-    </view>
-    <view class="today tem">
-      <view class="today-tem">{{todayTem}}</view>
-      <view class="today-icon">°</view>
-    </view>
-    <view class="weather-show">
-      <view class="weather-left">{{todayWeather}}</view>
-      <view class="weather-y"></view>
-      <image src="{{weatherIcon}}"></image>
-    </view>
-    <view class="weather-show">
-      <view class="weather-left">空气指数</view>
-      <view class="weather-y"></view>
-      <view class="weather-sky"><span>{{todaySkyNumber}} {{todaySky}}</span></view>
-    </view>
-    <view class="weather-info" >
-      <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{todayCloudSpeed}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
-    </view>
-  </view>
-
-  <view class="simple-weather">
-    <view class="simple-first">
-      <view>今天
-        <view class="simple-tem">{{todayTemMax}}°-{{todayTemMin}}°</view>
+  <scroll-view scroll-y="true" style="height: 100%">
+    <view class="weather-bg">
+      <view class="weather-location">
+        <image src="/img/icon/location.png"></image>
+        <view class="weather-address">{{localtion}}</view>
       </view>
-      <view class="simple-line"></view>
+      <view class="today tem">
+        <view class="today-tem">{{todayTem}}</view>
+        <view class="today-icon">°</view>
+      </view>
+      <view class="weather-show">
+        <view class="weather-left">{{todayWeather}}</view>
+        <view class="weather-y"></view>
+        <image src="{{weatherIcon}}"></image>
+      </view>
+      <view class="weather-show">
+        <view class="weather-left">空气指数</view>
+        <view class="weather-y"></view>
+        <view class="weather-sky"><span>{{todaySkyNumber}} {{todaySky}}</span></view>
+      </view>
+      <view class="weather-info" >
+        <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{todayCloudSpeed}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
+      </view>
+    </view>
+
+    <view class="simple-weather">
+      <view class="simple-first">
+        <view>今天
+          <view class="simple-tem">{{todayTemMax}}°-{{todayTemMin}}°</view>
+        </view>
+        <view class="simple-line"></view>
+        <view>
+            明天
+          <view class="simple-tem">{{weekDay[0].maxTem}}°-{{weekDay[0].minTem}}°</view>
+        </view>
+      </view>
+      <view class="simple-second">
+        <view class="simple-content">
+          <span>{{todayWeather}}</span>
+          <image class="simple-img" src="{{weatherIcon}}"></image>
+        </view>
+        <view class="simple-line"></view>
+        <view class="simple-content">
+          <span>{{weekDay[0].weather}}</span>
+          <image class="simple-img" src="/img/weather/{{weekDay[0].icon}}.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="weather-time-info">
+      <view class="time-info-title">小时预报</view>
+      <view class="time-info-line"></view>
       <view>
-          明天
-        <view class="simple-tem">{{weekDay[0].maxTem}}°-{{weekDay[0].minTem}}°</view>
+        <canvas canvas-id="canvasLine" id="canvasLine" class="canvas-charts"></canvas>
       </view>
     </view>
-    <view class="simple-second">
-      <view class="simple-content">
-        <span>{{todayWeather}}</span>
-        <image class="simple-img" src="{{weatherIcon}}"></image>
-      </view>
-      <view class="simple-line"></view>
-      <view class="simple-content">
-        <span>{{weekDay[0].weather}}</span>
-        <image class="simple-img" src="/img/weather/{{weekDay[0].icon}}.png"></image>
-      </view>
+    <view class="weather-week-info">
+      <view class="time-info-title">每周预报</view>
+      <view class="time-info-line"></view>
+      <scroll-view scroll-x="true" class="weather-week-scroll">
+        <view class="week-title">
+          <view>今天</view>
+          <view>周二</view>
+          <view>周三</view>
+          <view>周四</view>
+          <view>周五</view>
+          <view>周六</view>
+          <view>周日</view>
+        </view>
+        <view class="week-date">
+          <view>08/05</view>
+          <view>08/06</view>
+          <view>08/07</view>
+          <view>08/08</view>
+          <view>08/09</view>
+          <view>08/10</view>
+          <view>08/11</view>
+        </view>
+        <view class="week-weather">
+          <view>晴</view>
+          <view>雷阵雨</view>
+          <view>多云</view>
+          <view>大雨</view>
+          <view>晴</view>
+          <view>晴</view>
+          <view>晴</view>
+        </view>
+        <view class="week-icon">
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+          <image src="/img/weather/yun.png"></image>
+        </view>
+        <view class="week-max-tem">
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+        </view>
+        <view class="week-line">
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+        </view>
+        <view class="week-min-tem">
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+          <view>37°</view>
+        </view>
+        <view class="week-weather" style="color:#A9A9A9">
+          <view>东风</view>
+          <view>东风</view>
+          <view>东风</view>
+          <view>东风</view>
+          <view>东风</view>
+          <view>东风</view>
+          <view>东风</view>
+        </view>
+        <view class="week-min-tem" style="color:#A9A9A9">
+          <view>3级</view>
+          <view>3级</view>
+          <view>3级</view>
+          <view>3级</view>
+          <view>3级</view>
+          <view>3级</view>
+          <view>3级</view>
+        </view>
+      </scroll-view>
     </view>
-  </view>
+      
+    <view class="weather-life-info">
+      <view class="time-info-title">生活指数</view>
+      <view class="time-info-line"></view>
+      <view class="life-area">
+        <view data-type="1" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+          <image src="/img/icon/fall.png"></image>
+          </view>
+          <view class="life-text">中等</view>
+          <view class="life-number">紫外线指数</view>
+        </view>
+        <view data-type="2" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+            <image src="/img/icon/sport.png"></image>
+          </view>
+          <view class="life-text">适宜</view>
+          <view class="life-number">运动指数</view>
+        </view>
+        <view data-type="3" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+            <image src="/img/icon/life.png"></image>
+          </view>
+          <view class="life-text">易波动</view>
+          <view class="life-number">血糖指数</view>
+        </view>
+      </view>
+      
+      <view class="life-area">
+        <view data-type="4" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+          <image src="/img/icon/skin.png"></image>
+          </view>
+          <view class="life-text">炎热</view>
+          <view class="life-number">穿衣指数</view>
+        </view>
+        <view data-type="5" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+            <image src="/img/icon/car.png"></image>
+          </view>
+          <view class="life-text">不宜</view>
+          <view class="life-number">洗车指数</view>
+        </view>
+        <view data-type="6" class="life-skin" bindtap="showModel">
+          <view class="life-image">
+            <image src="/img/icon/weather.png"></image>
+          </view>
+          <view class="life-text">良</view>
+          <view class="life-number">空气指数</view>
+        </view>
+      </view>
+      
 
-  <view class="weather-time-info">
-    <view class="time-info-title">小时预报</view>
-    <view class="time-info-line"></view>
-  </view>
+    </view>
+  </scroll-view>
 
 
-</scroll-view>
 
-
+<view>这里是底部</view>
+  
 
 </view>
 
