@@ -1,5 +1,6 @@
 //app.js
 var httpReuqest = require('/utils/httpRequest.js');
+var bmap = require('/utils/map/bmap-wx.min.js');
 var nav;
 var height;
 var width;
@@ -15,7 +16,7 @@ App({
     wx.getSystemInfo({
       success: function(res) {
         console.log(res);
-        nav = res.statusBarHeight + 46;
+        nav = res.statusBarHeight + 44;
         height = res.windowHeight;
         width = res.windowWidth;
       },
@@ -23,6 +24,27 @@ App({
     this.globalData.navHeight = nav;
     this.globalData.windowH = height;
     this.globalData.windowW = width;
+
+    var map = new bmap.BMapWX({
+      ak:"0OzKEwjC5V2xvrdNGwLyaHOlHofrUXV0"
+    });
+
+    map.weather({
+      fail: res =>{
+        console.log(res);
+      },
+      success: res =>{
+        var city = res.currentWeather[0].currentCity;
+        city = city.replace("市","");
+        var opts = {
+          data:{city: city},
+          success:citySuccess,
+          method:'GET'
+        }
+        httpReuqest.request("weather/getWeather",opts);
+      }
+    });
+
     // 登录
     // wx.login({
     //   success: res => {
@@ -34,15 +56,6 @@ App({
     //         method: "GET"
     //       }
     //       httpReuqest.request("auth", options);
-    //     }
-    //   }
-    // })
-
-    // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (!res.authSetting["scope.userInfo"]){
-          
     //     }
     //   }
     // })
@@ -64,4 +77,9 @@ function success(res){
       duration: 2000
     });
   }
+}
+
+
+function citySuccess(res) {
+  console.log(res);
 }

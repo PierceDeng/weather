@@ -9,6 +9,7 @@ Page({
   data: {
     windowHeight:0,
     windowWidth:0,
+    navH:0,
     left:'/img/icon/user.png',
     bg: '/img/season/test.jpg',
     weatherIcon: '/img/weather/yun.png',
@@ -95,13 +96,13 @@ Page({
     this.setData({
       windowHeight: app.globalData.windowH * 2,
       windowWidth: app.globalData.windowW+15,
+      navH:app.globalData.navHeight*2,
     });
     _self=this;
     this.initCharts();
-    console.log(this.data.windowHeight);
   },
   toMyPage:function(){
-    console.log(2);
+    console.log("暂未开放");
   },
   initCharts:function(){
     chartsLine = new uCharts({
@@ -201,9 +202,6 @@ Page({
         wx.showModal(opts);
         break;
     }
-  },
-  openModel:function(opts){
-    wx.showModal(opts);
   },
 
 })

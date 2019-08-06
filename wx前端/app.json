@@ -1,8 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/component/navtitle/title"
-    
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,7 +8,31 @@
     "navigationBarTitleText": "新发现",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#3f8cec",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/img/icon/homed.png",
+        "iconPath": "/img/icon/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/img/icon/userd.png",
+        "iconPath": "/img/icon/user.png",
+        "pagePath": "pages/index/index",
+        "text": "个人"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation":{
+      "desc":"你的位置信息将用于获取天气数据"
+    }
+  }
 }

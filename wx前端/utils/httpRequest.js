@@ -49,7 +49,7 @@ function failCallBack(res){
 }
 
 function completeCallBack(res){
-  console.log(res);
+
 }
 
 module.exports ={

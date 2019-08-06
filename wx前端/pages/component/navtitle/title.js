@@ -11,7 +11,7 @@ Component({
     },
     left:{
       type: String,
-      value: ''
+      value: '/img/icon/user.png'
     },
   },
   /**

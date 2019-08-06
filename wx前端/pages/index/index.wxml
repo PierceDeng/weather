@@ -2,8 +2,8 @@
 <view>
   <nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
 
-  <scroll-view scroll-y="true" style="height: 100%">
-    <view class="weather-bg">
+  <scroll-view scroll-y="true" style="height: 100%;">
+    <view class="weather-bg" style="margin-top:{{navH}}rpx">
       <view class="weather-location">
         <image src="/img/icon/location.png"></image>
         <view class="weather-address">{{localtion}}</view>
@@ -54,9 +54,7 @@
     <view class="weather-time-info">
       <view class="time-info-title">小时预报</view>
       <view class="time-info-line"></view>
-      <view>
-        <canvas canvas-id="canvasLine" id="canvasLine" class="canvas-charts"></canvas>
-      </view>
+      <canvas canvas-id="canvasLine" id="canvasLine" class="canvas-charts"></canvas>
     </view>
     <view class="weather-week-info">
       <view class="time-info-title">每周预报</view>
@@ -201,11 +199,12 @@
     </view>
   </scroll-view>
 
-
-
-<view>这里是底部</view>
+<view class="weather-foot-info">
+  <view class="foot-left-line"></view>
+  <view class="foot-text"> 数据来源天气API</view>
+  <view class="foot-right-line"></view>
+</view>
   
-
 </view>
 
 
