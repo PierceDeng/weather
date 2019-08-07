@@ -11,86 +11,20 @@ Page({
     windowWidth:0,
     navH:0,
     left:'/img/icon/user.png',
-    bg: '/img/season/test.jpg',
-    weatherIcon: '/img/weather/yun.png',
-    localtion:'长沙市',
-    todayTemMax: 37,
-    todayTemMin: 25,
-    todayTem: 30,
-    todayWeather: '多云转雷阵雨',
-    todaySkyNumber: '37',
-    todaySky: '优',
-    todayHumidity:"64",
-    todayCloud: '东南风',
-    todayCloudSpeed: '<3级',
-    todayWeek: '星期五',
-    weekDay:[
-      {
-        date:'2019-08-03',
-        maxTem:'39',
-        minTem:'20',
-        tem:'32',
-        weather:'晴',
-        icon:'qing',
-        cloud:'东风',
-      },
-      {
-        date: '2019-08-03',
-        maxTem: '39',
-        minTem: '20',
-        tem: '32',
-        weather: '晴',
-        icon: '/img/weather/qing.png',
-        cloud: '东风',
-      },
-      {
-        date: '2019-08-03',
-        maxTem: '39',
-        minTem: '20',
-        tem: '32',
-        weather: '晴',
-        icon: '/img/weather/qing.png',
-        cloud: '东风',   
-      },
-      {
-        date: '2019-08-03',
-        maxTem: '39',
-        minTem: '20',
-        tem: '32',
-        weather: '晴',
-        icon: '/img/weather/qing.png',
-        cloud: '东风',    
-      },
-      {
-        date: '2019-08-03',
-        maxTem: '39',
-        minTem: '20',
-        tem: '32',
-        weather: '晴',
-        icon: '/img/weather/qing.png',
-        cloud: '东风',   
-      },
-      {
-        date: '2019-08-03',
-        maxTem: '39',
-        minTem: '20',
-        tem: '32',
-        weather: '晴',
-        icon: '/img/weather/qing.png',
-        cloud: '东风',    
-      }
-    ],
-    chartData: {
-      categories: ['8:00', '11:00', '14:00', '17:00', '20:00', '23:00'],
-      series: [{
-        name: '时间温度',
-        data: [35, 20, 25, 37, 4, 20],
-        color: '#48D1CC',
-        textColor: '#000000', 
-        textSize: 10,
-        format:(val) =>{return val+"°"}
-      }]
-    },
+    weatherIcon: '',
+    localtion:'',
+    todayTemMax: 0,
+    todayTemMin: 0,
+    todayTem: 0,
+    todayWeather: '',
+    todaySkyNumber: '',
+    todaySky: '',
+    todayHumidity:"",
+    todayCloud: '',
+    todayCloudSpeed: '',
+    todayWeek: '',
+    weekDay:[],
+    chartData: {},
   },
   onLoad:function(options){
     this.setData({
@@ -99,19 +33,44 @@ Page({
       navH:app.globalData.navHeight*2,
     });
     _self=this;
-    this.initCharts();
+    wx.getStorage({
+      key: 'weather',
+      success: function (res) {
+        _self.initData(res);
+      },
+    })
+    
+  },
+  initData:function(res){
+    console.log(res);
+    this.setData({
+      localtion: res.data.city+"市",
+      todayTem: res.data.data[0].tem,
+      todayWeather: res.data.data[0].wea,
+      weatherIcon: "/img/weather/" + res.data.data[0].wea_img +".png",
+      todaySkyNumber: res.data.data[0].air,
+      todaySky: res.data.data[0].air_level,
+      todayHumidity: res.data.data[0].humidity,
+      todayCloud: res.data.data[0].win[0],
+      todayCloudSpeed: res.data.data[0].win_speed,
+      todayWeek: res.data.data[0].week,
+      todayTemMax: res.data.data[0].tem1,
+      todayTemMin: res.data.data[0].tem2,
+      weekDay: res.data.data,
+    })
+    this.initCharts(res.data.chartData);
   },
   toMyPage:function(){
     console.log("暂未开放");
   },
-  initCharts:function(){
+  initCharts:function(res){
     chartsLine = new uCharts({
       $this: _self,
       canvasId: "canvasLine",
       type: 'line',
       fontSize: 12,
-      categories: this.data.chartData.categories,
-      series: this.data.chartData.series,
+      categories: res.categories,
+      series: res.modelSerie,
       enableScroll: true,
       animation: true,
       legend: true,
@@ -128,9 +87,9 @@ Page({
         //disabled:true
         gridColor:"#778899",
         gridType: 'dash',
-        splitNumber: 4,
-        min: this.data.todayTemMin,
-        max: this.data.todayTemMax,
+        splitNumber: 3,
+        min: (this.data.todayTemMin - 1),
+        max: (this.data.todayTemMax + 1),
         format: (val) => { return val.toFixed(0) + '°' }
       },
       extra: {
@@ -154,7 +113,6 @@ Page({
           confirmColor:"#41078a",
           showCancel:false,
         };
-        wx.showModal(opts);
         break;
       case '2':
         opts = {
@@ -163,7 +121,6 @@ Page({
           confirmColor: "#1296db",
           showCancel: false,
         }
-        wx.showModal(opts);
         break;
       case '3':
         opts = {
@@ -172,7 +129,6 @@ Page({
           confirmColor: "#d4237a",
           showCancel: false,
         }
-        wx.showModal(opts);
         break;
       case '4':
         opts = {
@@ -181,7 +137,6 @@ Page({
           confirmColor: "#d81e06",
           showCancel: false,
         }
-        wx.showModal(opts);
         break;
       case '5':
         opts = {
@@ -190,7 +145,6 @@ Page({
           confirmColor: "#c99c2d",
           showCancel: false,
         }
-        wx.showModal(opts);
         break;
       case '6':
         opts = {
@@ -199,9 +153,9 @@ Page({
           confirmColor: "#1afa29",
           showCancel: false,
         }
-        wx.showModal(opts);
         break;
     }
+    wx.showModal(opts);
   },
 
 })

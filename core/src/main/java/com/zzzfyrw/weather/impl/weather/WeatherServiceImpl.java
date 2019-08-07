@@ -3,11 +3,12 @@ package com.zzzfyrw.weather.impl.weather;
 import com.zzzfyrw.business.weather.WeatherService;
 import com.zzzfyrw.common.dto.WeatherDto;
 import com.zzzfyrw.common.weather.WeatherApi;
-import com.zzzfyrw.common.weather.entity.WeatherHours;
-import com.zzzfyrw.common.weather.entity.WeatherIndex;
+import com.zzzfyrw.common.weather.entity.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WeatherServiceImpl implements WeatherService {
@@ -32,6 +33,35 @@ public class WeatherServiceImpl implements WeatherService {
             k.setTem(k.getTem().replace("℃",""));
         });
 
+        List<Integer> collect = dto.getData()
+                .get(0)
+                .getHours()
+                .stream()
+                .map(WeatherHours::getTem)
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
+        if(collect.size()>=6){
+            collect = collect.subList(0,6);
+        }else {
+            collect = collect.subList(0,collect.size());
+        }
+        dto.setWeekTems(collect);
+
+
+        String[] categories = {"8:00", "11:00", "14:00", "17:00", "20:00", "23:00"};
+        List<Serie> series = new ArrayList<>();
+        Serie serie = new Serie();
+        serie.setColor("#48D1CC");
+        serie.setTextColor("#000000");
+        serie.setName("时间温度");
+        serie.setTextSize(10);
+        serie.setData(collect);
+        series.add(serie);
+
+        ChartData chartData = new ChartData();
+        chartData.setCategories(categories);
+        chartData.setModelSerie(series);
+        dto.setChartData(chartData);
         return dto;
     }
 }

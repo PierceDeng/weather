@@ -1,0 +1,11 @@
+<!--pages/auth/location/location.wxml-->
+<view>
+  <nav-title></nav-title>
+  
+  <view class="dialog">
+    
+
+  </view>
+
+      
+</view>

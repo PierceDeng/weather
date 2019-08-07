@@ -35,7 +35,7 @@
         <view class="simple-line"></view>
         <view>
             明天
-          <view class="simple-tem">{{weekDay[0].maxTem}}°-{{weekDay[0].minTem}}°</view>
+          <view class="simple-tem">{{weekDay[1].tem1}}°-{{weekDay[1].tem2}}°</view>
         </view>
       </view>
       <view class="simple-second">
@@ -45,8 +45,8 @@
         </view>
         <view class="simple-line"></view>
         <view class="simple-content">
-          <span>{{weekDay[0].weather}}</span>
-          <image class="simple-img" src="/img/weather/{{weekDay[0].icon}}.png"></image>
+          <span>{{weekDay[1].wea}}</span>
+          <image class="simple-img" src="/img/weather/{{weekDay[1].wea_img}}.png"></image>
         </view>
       </view>
     </view>

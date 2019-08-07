@@ -1,0 +1,23 @@
+/* pages/auth/location/location.wxss */
+
+Page{
+  width: 100%;
+  height: 100%;
+}
+.dialog{
+  width: 100%;
+  height: 100%;
+  background-color: #A9A9A9;
+  z-index: 999;
+  opacity: 0.4;
+  position: absolute;
+
+}
+.dialog-modal{
+  width: 100%;
+  height: 350rpx;
+  z-index: 1000;
+  background-color: white;
+  bottom: 0;
+  position: absolute;
+}

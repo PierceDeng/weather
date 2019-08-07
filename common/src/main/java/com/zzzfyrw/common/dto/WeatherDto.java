@@ -1,7 +1,9 @@
 package com.zzzfyrw.common.dto;
 
+import com.zzzfyrw.common.weather.entity.ChartData;
 import com.zzzfyrw.common.weather.entity.Weather;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class WeatherDto {
@@ -9,6 +11,24 @@ public class WeatherDto {
     private String update_time;
     private String city;
     private List<Weather> data;
+    private List<Integer> weekTems;
+    private ChartData chartData;
+
+    public ChartData getChartData() {
+        return chartData;
+    }
+
+    public void setChartData(ChartData chartData) {
+        this.chartData = chartData;
+    }
+
+    public List<Integer>  getWeekTems() {
+        return weekTems;
+    }
+
+    public void setWeekTems(List<Integer>  weekTems) {
+        this.weekTems = weekTems;
+    }
 
     public String getUpdate_time() {
         return update_time;
@@ -40,6 +60,7 @@ public class WeatherDto {
                 "update_time='" + update_time + '\'' +
                 ", city='" + city + '\'' +
                 ", data=" + data +
+                ", weekTems=" + weekTems +
                 '}';
     }
 }
