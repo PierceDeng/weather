@@ -45,8 +45,6 @@ public class WeatherServiceImpl implements WeatherService {
         }else {
             collect = collect.subList(0,collect.size());
         }
-        dto.setWeekTems(collect);
-
 
         String[] categories = {"8:00", "11:00", "14:00", "17:00", "20:00", "23:00"};
         List<Serie> series = new ArrayList<>();

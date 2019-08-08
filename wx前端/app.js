@@ -15,7 +15,7 @@ App({
     wx.getSystemInfo({
       success: function(res) {
         // console.log(res);
-        nav = res.statusBarHeight + 44;
+        nav = res.statusBarHeight + 47;
         height = res.windowHeight;
         width = res.windowWidth;
       },

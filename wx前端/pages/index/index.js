@@ -24,7 +24,6 @@ Page({
     todayCloudSpeed: '',
     todayWeek: '',
     weekDay:[],
-    chartData: {},
   },
   onLoad:function(options){
     this.setData({
@@ -38,7 +37,12 @@ Page({
       success: function (res) {
         _self.initData(res);
       },
-    })
+      fail: function(){
+        wx.reLaunch({
+          url: '/pages/auth/location/location',
+        })
+      }
+    });
     
   },
   initData:function(res){
@@ -47,7 +51,7 @@ Page({
       localtion: res.data.city+"市",
       todayTem: res.data.data[0].tem,
       todayWeather: res.data.data[0].wea,
-      weatherIcon: "/img/weather/" + res.data.data[0].wea_img +".png",
+      weatherIcon: res.data.data[0].wea_img,
       todaySkyNumber: res.data.data[0].air,
       todaySky: res.data.data[0].air_level,
       todayHumidity: res.data.data[0].humidity,
@@ -64,13 +68,17 @@ Page({
     console.log("暂未开放");
   },
   initCharts:function(res){
+    var modelSerie = res.modelSerie;
+    modelSerie[0].format = (res) =>{return res+"°"};
+    var max = parseInt(this.data.todayTemMax) + 1;
+    var min = this.data.todayTemMin - 1;
     chartsLine = new uCharts({
       $this: _self,
       canvasId: "canvasLine",
       type: 'line',
       fontSize: 12,
       categories: res.categories,
-      series: res.modelSerie,
+      series: modelSerie,
       enableScroll: true,
       animation: true,
       legend: true,
@@ -88,8 +96,8 @@ Page({
         gridColor:"#778899",
         gridType: 'dash',
         splitNumber: 3,
-        min: (this.data.todayTemMin - 1),
-        max: (this.data.todayTemMax + 1),
+        min: min,
+        max: max,
         format: (val) => { return val.toFixed(0) + '°' }
       },
       extra: {
@@ -109,7 +117,7 @@ Page({
       case '1': 
         opts= {
           title:"提醒",
-          content:'111111',
+          content: this.data.weekDay[0].index[0].desc,
           confirmColor:"#41078a",
           showCancel:false,
         };
@@ -117,7 +125,7 @@ Page({
       case '2':
         opts = {
           title: "提醒",
-          content: '2222222',
+          content: this.data.weekDay[0].index[1].desc,
           confirmColor: "#1296db",
           showCancel: false,
         }
@@ -125,7 +133,7 @@ Page({
       case '3':
         opts = {
           title: "提醒",
-          content: '33333',
+          content: this.data.weekDay[0].index[2].desc,
           confirmColor: "#d4237a",
           showCancel: false,
         }
@@ -133,7 +141,7 @@ Page({
       case '4':
         opts = {
           title: "提醒",
-          content: '444444',
+          content: this.data.weekDay[0].index[3].desc,
           confirmColor: "#d81e06",
           showCancel: false,
         }
@@ -141,7 +149,7 @@ Page({
       case '5':
         opts = {
           title: "提醒",
-          content: '555555',
+          content: this.data.weekDay[0].index[4].desc,
           confirmColor: "#c99c2d",
           showCancel: false,
         }
@@ -149,7 +157,7 @@ Page({
       case '6':
         opts = {
           title: "提醒",
-          content: '6',
+          content: this.data.weekDay[0].index[5].desc,
           confirmColor: "#1afa29",
           showCancel: false,
         }

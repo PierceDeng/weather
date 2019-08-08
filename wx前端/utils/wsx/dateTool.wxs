@@ -1,0 +1,44 @@
+
+
+var dateFormat = function(str){
+  var index = str.indexOf("-");
+  var s1 = str.substring(index+1, str.length);  
+  var s2 = s1.replace("-","/");
+  return s2;
+}
+
+var weatherFormat = function(str){
+  if (str.length > 3){
+    if (str.indexOf("雷阵雨") != -1) return "雷阵雨";
+    else if (str.indexOf("阵雨") != -1) return "阵雨";
+    else if (str.indexOf("大雨") != -1) return "大雨";
+    else if (str.indexOf("小雨") != -1) return "小雨";
+    else if (str.indexOf("大暴雨") != -1) return "大暴雨";
+    else if (str.indexOf("暴雨") != -1) return "暴雨";
+    else if (str.indexOf("大雪") != -1) return "大雪";
+    else if (str.indexOf("小雪") != -1) return "小雪";
+    else if (str.indexOf("暴雪") != -1) return "暴雪";
+    else if (str.indexOf("强沙尘暴") != -1) return "沙尘暴";
+    else if (str.indexOf("晴") != -1) return "晴";
+    else return "多云";
+  }else{
+    return str;
+  }
+}
+
+var windFormat = function(str){
+  var index = str.lastIndexOf("级");
+  if(index != -1){
+    var s1 = str.substring(index-1,index+1);
+    return s1;
+  }
+  return str;
+}
+
+
+
+module.exports = {
+  dateFormat: dateFormat,
+  weatherFormat: weatherFormat,
+  windFormat: windFormat
+}

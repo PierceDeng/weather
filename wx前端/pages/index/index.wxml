@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<wxs src="../../utils/wsx/dateTool.wxs" module="dateTool" />
 <view>
   <nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
 
@@ -15,7 +16,7 @@
       <view class="weather-show">
         <view class="weather-left">{{todayWeather}}</view>
         <view class="weather-y"></view>
-        <image src="{{weatherIcon}}"></image>
+        <image src="/img/weather/{{weatherIcon}}.png"></image>
       </view>
       <view class="weather-show">
         <view class="weather-left">空气指数</view>
@@ -23,7 +24,7 @@
         <view class="weather-sky"><span>{{todaySkyNumber}} {{todaySky}}</span></view>
       </view>
       <view class="weather-info" >
-        <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{todayCloudSpeed}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
+        <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{dateTool.windFormat(todayCloudSpeed)}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
       </view>
     </view>
 
@@ -41,7 +42,7 @@
       <view class="simple-second">
         <view class="simple-content">
           <span>{{todayWeather}}</span>
-          <image class="simple-img" src="{{weatherIcon}}"></image>
+          <image class="simple-img" src="/img/weather/{{weatherIcon}}.png"></image>
         </view>
         <view class="simple-line"></view>
         <view class="simple-content">
@@ -61,85 +62,49 @@
       <view class="time-info-line"></view>
       <scroll-view scroll-x="true" class="weather-week-scroll">
         <view class="week-title">
-          <view>今天</view>
-          <view>周二</view>
-          <view>周三</view>
-          <view>周四</view>
-          <view>周五</view>
-          <view>周六</view>
-          <view>周日</view>
+          <view wx:for="{{weekDay}}" wx:key='{{item.day}}' wx:for-index="i">
+            <span wx:if="{{i == 0}}">今天</span>
+            <span wx:else>{{item.week}}</span>
+          </view> 
         </view>
+        
         <view class="week-date">
-          <view>08/05</view>
-          <view>08/06</view>
-          <view>08/07</view>
-          <view>08/08</view>
-          <view>08/09</view>
-          <view>08/10</view>
-          <view>08/11</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.date}}">
+            {{dateTool.dateFormat(item.date)}}
+          </view>
         </view>
         <view class="week-weather">
-          <view>晴</view>
-          <view>雷阵雨</view>
-          <view>多云</view>
-          <view>大雨</view>
-          <view>晴</view>
-          <view>晴</view>
-          <view>晴</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.wea}}">
+            {{dateTool.weatherFormat(item.wea)}}
+          </view>
         </view>
         <view class="week-icon">
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
-          <image src="/img/weather/yun.png"></image>
+          <image wx:for="{{weekDay}}" wx:key="{{item.wea_img}}" 
+            src="/img/weather/{{item.wea_img}}.png">
+          </image>
         </view>
         <view class="week-max-tem">
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.tem1}}">
+            {{item.tem1}}°
+          </view>
         </view>
         <view class="week-line">
-          <view></view>
-          <view></view>
-          <view></view>
-          <view></view>
-          <view></view>
-          <view></view>
-          <view></view>
+          <view wx:for="{{weekDay}}" wx:key="line"></view>
         </view>
         <view class="week-min-tem">
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
-          <view>37°</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.tem2}}">
+            {{item.tem2}}°
+          </view>
         </view>
         <view class="week-weather" style="color:#A9A9A9">
-          <view>东风</view>
-          <view>东风</view>
-          <view>东风</view>
-          <view>东风</view>
-          <view>东风</view>
-          <view>东风</view>
-          <view>东风</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.win}}">
+            {{item.win[0]}}
+          </view>
         </view>
         <view class="week-min-tem" style="color:#A9A9A9">
-          <view>3级</view>
-          <view>3级</view>
-          <view>3级</view>
-          <view>3级</view>
-          <view>3级</view>
-          <view>3级</view>
-          <view>3级</view>
+          <view wx:for="{{weekDay}}" wx:key="{{item.speed}}">
+            {{dateTool.windFormat(item.win_speed)}}
+          </view>
         </view>
       </scroll-view>
     </view>
@@ -152,7 +117,7 @@
           <view class="life-image">
           <image src="/img/icon/fall.png"></image>
           </view>
-          <view class="life-text">中等</view>
+          <view class="life-text">{{weekDay[0].index[0].level}}</view>
           <view class="life-number">紫外线指数</view>
         </view>
         <view data-type="2" class="life-skin" bindtap="showModel">
@@ -166,7 +131,7 @@
           <view class="life-image">
             <image src="/img/icon/life.png"></image>
           </view>
-          <view class="life-text">易波动</view>
+          <view class="life-text">{{weekDay[0].index[2].level}}</view>
           <view class="life-number">血糖指数</view>
         </view>
       </view>
@@ -176,22 +141,22 @@
           <view class="life-image">
           <image src="/img/icon/skin.png"></image>
           </view>
-          <view class="life-text">炎热</view>
+          <view class="life-text">{{weekDay[0].index[3].level}}</view>
           <view class="life-number">穿衣指数</view>
         </view>
         <view data-type="5" class="life-skin" bindtap="showModel">
           <view class="life-image">
             <image src="/img/icon/car.png"></image>
           </view>
-          <view class="life-text">不宜</view>
+          <view class="life-text">{{weekDay[0].index[4].level}}</view>
           <view class="life-number">洗车指数</view>
         </view>
         <view data-type="6" class="life-skin" bindtap="showModel">
           <view class="life-image">
             <image src="/img/icon/weather.png"></image>
           </view>
-          <view class="life-text">良</view>
-          <view class="life-number">空气指数</view>
+          <view class="life-text">{{weekDay[0].index[5].level}}</view>
+          <view class="life-number">污染指数</view>
         </view>
       </view>
       

@@ -1,0 +1,42 @@
+<!--pages/search/search.wxml-->
+<view>
+  
+  <nav-title left='{{left}}' title="{{title}}" bind:go="backPage"></nav-title>
+  
+  
+  <view class="search-info" style="margin-top:{{navH}}rpx;">
+    <view class="search-text">搜索</view>
+    <view class="search-input">
+      <image class="search-city-img" src="/img/icon/city.png"></image>
+      <view class="search-line"></view>
+      <input class="search-content" placeholder="请输入城市名称"></input>
+      <view class="search-img-bg">
+        <image src="/img/icon/search.png"></image>
+      </view>
+    </view>
+    <view class="search-warn">*填写城市名称时，例如北京、北京市均可</view>
+  </view>
+
+
+  <view class="search-hisotry-hot-bg">
+    <view class="search-text">历史记录</view>
+    <view class="hh-line"></view>
+    <view class="history-tag-box">
+      <view class="history-tag">
+        上海市
+      </view>
+    </view>
+    <view class="search-hot">
+      <view class="search-text">热门城市</view>
+      <view class="hh-line"></view>
+      <view class="history-tag-box">
+        <view class="history-tag" wx:for="{{hotCity}}" wx:key="city">
+          {{item}}
+        </view>
+      </view>  
+     
+    </view>
+  </view>
+
+  
+  </view> 

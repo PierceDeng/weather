@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/auth/location/location",
     "pages/index/index"
-   
+
   ],
   "window": {
     "backgroundTextStyle": "light",
