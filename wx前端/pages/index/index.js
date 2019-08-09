@@ -165,5 +165,10 @@ Page({
     }
     wx.showModal(opts);
   },
+  changeCity:function(){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  }
 
 })

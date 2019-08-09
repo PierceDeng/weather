@@ -19,7 +19,7 @@ page{
 }
 
 .search-text{
-  width: 100%;
+  width: 60%;
   line-height: 60rpx;
   padding: 20rpx 0 10rpx 60rpx;
   font-size: 34rpx;
@@ -81,13 +81,30 @@ page{
   margin: 8rpx 0 0 60rpx;
 }
 
-.search-hisotry-hot-bg{
+.search-history-hot-bg{
   height: 900rpx;
   background-color: #F5F5F5;
   /* background-color: red; */
   width: calc(100% -20%);
   margin: 50rpx 10rpx 10rpx 10rpx;
   border-radius: 10rpx;
+}
+
+.history-clear{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  height: 80rpx;
+  width: 80rpx;
+  margin: -85rpx 80rpx 0 0;
+  background-color: #87CEFA;
+  border-radius: 50%;
+}
+
+.history-clear image{
+  width: 45rpx;
+  height: 45rpx;
 }
 
 .hh-line{

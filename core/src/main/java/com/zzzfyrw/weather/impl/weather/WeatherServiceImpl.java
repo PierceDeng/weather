@@ -1,17 +1,35 @@
 package com.zzzfyrw.weather.impl.weather;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zzzfyrw.business.weather.WeatherService;
 import com.zzzfyrw.common.dto.WeatherDto;
 import com.zzzfyrw.common.weather.WeatherApi;
 import com.zzzfyrw.common.weather.entity.*;
+import com.zzzfyrw.repository.dao.SearchMapper;
+import com.zzzfyrw.repository.dao.SysCityMapper;
+import com.zzzfyrw.repository.dao.UserTokenMapper;
+import com.zzzfyrw.repository.entity.SearchEntity;
+import com.zzzfyrw.repository.entity.SysCityEntity;
+import com.zzzfyrw.repository.entity.UserTokenEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class WeatherServiceImpl implements WeatherService {
+
+    @Autowired
+    private SysCityMapper cityMapper;
+
+    @Autowired
+    private SearchMapper searchMapper;
+
+    @Autowired
+    private UserTokenMapper tokenMapper;
 
     @Override
     public WeatherDto getWeatherByCity(String city)throws Exception {
@@ -61,5 +79,28 @@ public class WeatherServiceImpl implements WeatherService {
         chartData.setModelSerie(series);
         dto.setChartData(chartData);
         return dto;
+    }
+
+    @Override
+    public WeatherDto authWeatherByCity(String city, Integer type,String token) throws Exception {
+
+        SysCityEntity entity =
+                cityMapper.selectOne(new QueryWrapper<SysCityEntity>()
+                        .like("city", city));
+
+        if(entity == null) return null;
+
+        if(type == 1){
+            UserTokenEntity userToken =
+                    tokenMapper.selectOne(new QueryWrapper<UserTokenEntity>()
+                    .eq("token", token)
+                    .ge("create_time", LocalDateTime.now().minusDays(30)));
+            SearchEntity search = new SearchEntity();
+            search.setText(city);
+            search.setUserId(userToken.getUserId());
+            searchMapper.insert(search);
+        }
+
+        return this.getWeatherByCity(entity.getShortName());
     }
 }

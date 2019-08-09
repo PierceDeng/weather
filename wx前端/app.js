@@ -6,7 +6,6 @@ var width;
 
 App({
   globalData: {
-    userInfo: null,
     navHeight: 0,
     windowH: 0,
     windowW: 0,
@@ -23,21 +22,21 @@ App({
     this.globalData.navHeight = nav;
     this.globalData.windowH = height;
     this.globalData.windowW = width;
+    
     var that = this;
-    // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //     if(res.code){
-    //       var options = {
-    //         data:{"code":res.code},
-    //         success: that.success,
-    //         method: "GET"
-    //       }
-    //       httpReuqest.request("auth", options);
-    //     }
-    //   }
-    // })
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if(res.code){
+          var options = {
+            data:{"code":res.code},
+            success: that.success,
+            method: "GET"
+          }
+          httpReuqest.request("auth", options);
+        }
+      }
+    })
   },
   success:function(res){
     if (res.code === 0) {

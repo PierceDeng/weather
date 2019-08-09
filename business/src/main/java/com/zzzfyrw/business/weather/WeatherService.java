@@ -7,4 +7,7 @@ public interface WeatherService {
 
     WeatherDto getWeatherByCity(String city)throws Exception;
 
+    WeatherDto authWeatherByCity(String city,Integer type,String token)throws Exception;
+
+
 }

@@ -6,7 +6,7 @@
   <scroll-view scroll-y="true" style="height: 100%;">
     <view class="weather-bg" style="margin-top:{{navH}}rpx">
       <view class="weather-location">
-        <image src="/img/icon/location.png"></image>
+        <image src="/img/icon/location.png" bindtap="changeCity"></image>
         <view class="weather-address">{{localtion}}</view>
       </view>
       <view class="today tem">

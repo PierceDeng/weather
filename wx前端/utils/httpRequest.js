@@ -2,17 +2,21 @@
 const url = "http://127.0.0.1:8888/";
 const method = "POST";
 const responseType = "text";
-const header = {
+var header = {
   "content-type":'application/json; charset=utf-8'
 }
 
 function request(path,options){
+  if (options.header != null){
+    header["token"] = options.header["token"];
+  }
+
   wx.request({
     url: url+path,
     data: options.data == null ? '' : options.data,
     method: options.method == null ? method : options.method,
     dataType: 'json',
-    header: options.header == null ? header : options.header,
+    header: header,
     responseType: options.responseType == null ? responseType : options.responseType,
     success: res =>{
       if (res.statusCode === 200 && options.success){

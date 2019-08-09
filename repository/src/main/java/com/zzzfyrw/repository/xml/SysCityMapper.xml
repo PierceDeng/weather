@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzfyrw.repository.dao.SysCityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zzzfyrw.repository.entity.SysCityEntity">
+        <result column="id" property="id" />
+        <result column="cityId" property="cityId" />
+        <result column="father" property="father" />
+        <result column="city" property="city" />
+        <result column="mergerName" property="mergerName" />
+        <result column="shortName" property="shortName" />
+        <result column="mergerShortName" property="mergerShortName" />
+        <result column="levelType" property="levelType" />
+        <result column="pinyin" property="pinyin" />
+        <result column="jianpin" property="jianpin" />
+        <result column="firstChar" property="firstChar" />
+        <result column="lng" property="lng" />
+        <result column="lat" property="lat" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, cityId, father, city, mergerName, shortName, mergerShortName, levelType, pinyin, jianpin, firstChar, lng, lat, remarks
+    </sql>
+
+</mapper>

@@ -9,8 +9,8 @@
     <view class="search-input">
       <image class="search-city-img" src="/img/icon/city.png"></image>
       <view class="search-line"></view>
-      <input class="search-content" placeholder="请输入城市名称"></input>
-      <view class="search-img-bg">
+      <input class="search-content" placeholder="请输入城市名称" value="{{searchInfo}}" bindinput="updateSearchValue"></input>
+      <view class="search-img-bg" bindtap="clickSearch">
         <image src="/img/icon/search.png"></image>
       </view>
     </view>
@@ -18,19 +18,27 @@
   </view>
 
 
-  <view class="search-hisotry-hot-bg">
+  <view class="search-history-hot-bg">
     <view class="search-text">历史记录</view>
+    <view class="history-clear" bindtap="clearHistory" wx:if="{{historyCity.length > 0}}">
+      <image src="/img/icon/clear.png"></image>
+    </view>
     <view class="hh-line"></view>
     <view class="history-tag-box">
-      <view class="history-tag">
-        上海市
+      <view class="history-tag" wx:if="{{historyCity.length == 0}}" 
+        bindtap="clickBlackTag">
+        ...
+      </view> 
+      <view class="history-tag" wx:for="{{historyCity}}"
+         wx:key="hisotry" wx:for-index="i">
+          {{item}}
       </view>
     </view>
     <view class="search-hot">
       <view class="search-text">热门城市</view>
       <view class="hh-line"></view>
       <view class="history-tag-box">
-        <view class="history-tag" wx:for="{{hotCity}}" wx:key="city">
+        <view class="history-tag" wx:for="{{hotCity}}" wx:key="city" bindtap="clickTag" data-key="{{item}}">
           {{item}}
         </view>
       </view>  

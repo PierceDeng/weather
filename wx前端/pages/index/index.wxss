@@ -18,7 +18,7 @@ Page{
 }
 
 .weather-location{
-  width: 40%;
+  width: 30%;
   padding: 20rpx 0 130rpx 20rpx;
   display: flex;
   align-items: center;

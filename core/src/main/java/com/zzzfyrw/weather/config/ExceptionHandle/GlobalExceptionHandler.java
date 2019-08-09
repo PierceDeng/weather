@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class AllExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public Response handler(Exception e){
-        e.printStackTrace();
+    public Response exHandler(Exception e){
         return ResponseBuilder.fail(ErrEnum.未知异常.getMsg(),ErrEnum.未知异常.getCode());
     }
 
+    @ExceptionHandler(AuthException.class)
+    public Response authHandler(Exception e){
+        e.printStackTrace();
+        return ResponseBuilder.fail(ErrEnum.TOKEN.getMsg(),ErrEnum.TOKEN.getCode());
+    }
 
 }
