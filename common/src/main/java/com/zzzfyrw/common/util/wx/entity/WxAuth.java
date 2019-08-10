@@ -1,4 +1,4 @@
-package com.zzzfyrw.common.wx.entity;
+package com.zzzfyrw.common.util.wx.entity;
 
 public class WxAuth {
 

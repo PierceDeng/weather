@@ -1,4 +1,4 @@
-package com.zzzfyrw.common.weather.entity;
+package com.zzzfyrw.common.util.weather.entity;
 
 public class WeatherHours {
 

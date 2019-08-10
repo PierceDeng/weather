@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface SearchService extends IService<SearchEntity> {
 
-    List<String> querySearchHistory(String userId)throws Exception;
+    List<String> querySearchHistory(String token)throws Exception;
+
+    String clearSearchHistory(String token)throws Exception;
 
 
 }

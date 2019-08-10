@@ -1,4 +1,4 @@
-package com.zzzfyrw.common.weather;
+package com.zzzfyrw.common.util.weather;
 
 import com.zzzfyrw.common.dto.WeatherDto;
 import com.zzzfyrw.common.util.UnicodeUtil;

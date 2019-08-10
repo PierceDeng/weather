@@ -9,7 +9,7 @@
     <view class="search-input">
       <image class="search-city-img" src="/img/icon/city.png"></image>
       <view class="search-line"></view>
-      <input class="search-content" placeholder="请输入城市名称" value="{{searchInfo}}" bindinput="updateSearchValue"></input>
+      <input class="search-content" placeholder="请输入城市名称" value="{{searchInfo}}" bindblur="updateSearchValue"></input>
       <view class="search-img-bg" bindtap="clickSearch">
         <image src="/img/icon/search.png"></image>
       </view>
@@ -30,7 +30,7 @@
         ...
       </view> 
       <view class="history-tag" wx:for="{{historyCity}}"
-         wx:key="hisotry" wx:for-index="i">
+         wx:key="hisotry" bindtap="clickTag" data-key="{{item}}">
           {{item}}
       </view>
     </view>

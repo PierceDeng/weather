@@ -1,8 +1,8 @@
-package com.zzzfyrw.common.wx;
+package com.zzzfyrw.common.util.wx;
 
 import com.zzzfyrw.common.util.gson.GsonUtil;
 import com.zzzfyrw.common.util.okHttp.OkHttpUtil;
-import com.zzzfyrw.common.wx.entity.WxAuth;
+import com.zzzfyrw.common.util.wx.entity.WxAuth;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

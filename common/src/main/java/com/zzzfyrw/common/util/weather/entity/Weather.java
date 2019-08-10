@@ -1,8 +1,6 @@
-package com.zzzfyrw.common.weather.entity;
+package com.zzzfyrw.common.util.weather.entity;
 
-import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class Weather {

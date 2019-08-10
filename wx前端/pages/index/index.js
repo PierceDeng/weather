@@ -31,22 +31,22 @@ Page({
       windowWidth: app.globalData.windowW+15,
       navH:app.globalData.navHeight*2,
     });
-    _self=this;
+  },
+  onShow:function(){
+    _self = this;
     wx.getStorage({
       key: 'weather',
       success: function (res) {
         _self.initData(res);
       },
-      fail: function(){
+      fail: function () {
         wx.reLaunch({
           url: '/pages/auth/location/location',
         })
       }
     });
-    
   },
   initData:function(res){
-    console.log(res);
     this.setData({
       localtion: res.data.city+"市",
       todayTem: res.data.data[0].tem,

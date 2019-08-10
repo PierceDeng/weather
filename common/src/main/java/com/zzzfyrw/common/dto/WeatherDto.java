@@ -1,7 +1,7 @@
 package com.zzzfyrw.common.dto;
 
-import com.zzzfyrw.common.weather.entity.ChartData;
-import com.zzzfyrw.common.weather.entity.Weather;
+import com.zzzfyrw.common.util.weather.entity.ChartData;
+import com.zzzfyrw.common.util.weather.entity.Weather;
 
 import java.util.List;
 

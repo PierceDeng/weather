@@ -1,4 +1,4 @@
-package com.zzzfyrw.common.wx;
+package com.zzzfyrw.common.util.wx;
 
 import java.util.ResourceBundle;
 

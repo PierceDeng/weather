@@ -4,16 +4,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzzfyrw.business.user.LoginService;
 import com.zzzfyrw.business.user.UserTokenService;
-import com.zzzfyrw.common.wx.WxApiUtil;
-import com.zzzfyrw.common.wx.entity.WxAuth;
+import com.zzzfyrw.common.util.wx.WxApiUtil;
+import com.zzzfyrw.common.util.wx.entity.WxAuth;
 import com.zzzfyrw.repository.dao.UserMapper;
 import com.zzzfyrw.repository.entity.UserEntity;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * <p>
