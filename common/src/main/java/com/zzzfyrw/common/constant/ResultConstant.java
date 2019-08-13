@@ -2,7 +2,7 @@ package com.zzzfyrw.common.constant;
 
 public final class ResultConstant {
 
-    public static final String HISTORY_S = "清除历史记录成功";
-    public static final String HISTORY_F = "清除历史记录失败";
+    public static final String HISTORY_S = "清空历史记录";
+    public static final String HISTORY_F = "清空失败";
 
 }

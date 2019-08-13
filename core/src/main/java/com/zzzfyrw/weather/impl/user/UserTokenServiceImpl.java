@@ -1,6 +1,5 @@
 package com.zzzfyrw.weather.impl.user;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzzfyrw.business.user.UserTokenService;
 import com.zzzfyrw.common.util.TokenUtil;
@@ -27,9 +26,9 @@ public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken
 
     @Override
     public Long queryUserIdByToken(String token)throws Exception {
-        UserTokenEntity entity = this.baseMapper.selectOne(new QueryWrapper<UserTokenEntity>()
-                .eq("token", token)
-                .ge("create_time", LocalDateTime.now().minusDays(30)));
+        UserTokenEntity entity = this.baseMapper
+                .queryByTokenAndTime(token,LocalDateTime.now().minusDays(30));
+
         if(entity != null)
             return entity.getUserId();
         return null;

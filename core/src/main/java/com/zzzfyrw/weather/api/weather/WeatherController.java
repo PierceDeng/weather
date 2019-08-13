@@ -10,7 +10,6 @@ import com.zzzfyrw.common.response.ResponseBuilder;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,8 +32,9 @@ public class WeatherController {
 
     @PostMapping("authWeather")
     @AuthValid
+    @ApiOperation(value = "请求每周天气")
     public Response<WeatherDto> authWeather(@RequestBody SearchCityParam param,
-                                            HttpServletRequest request)throws Exception{
+                                               HttpServletRequest request)throws Exception{
         String token = request.getHeader("token");
         WeatherDto dto = weatherService.authWeatherByCity(param.getCity(), param.getType(), token);
         if(dto == null)

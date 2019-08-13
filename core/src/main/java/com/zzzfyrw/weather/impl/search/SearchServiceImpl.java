@@ -25,9 +25,7 @@ public class SearchServiceImpl extends ServiceImpl<SearchMapper, SearchEntity> i
     public List<String> querySearchHistory(String token) throws Exception {
 
         UserTokenEntity userToken =
-                tokenMapper.selectOne(new QueryWrapper<UserTokenEntity>()
-                        .eq("token", token)
-                        .ge("create_time", LocalDateTime.now().minusDays(30)));
+                tokenMapper.queryByTokenAndTime(token,LocalDateTime.now().minusDays(30));
 
         List<SearchEntity> searchList =
                 this.baseMapper.selectList(new QueryWrapper<SearchEntity>()
@@ -43,9 +41,7 @@ public class SearchServiceImpl extends ServiceImpl<SearchMapper, SearchEntity> i
     public String clearSearchHistory(String token) throws Exception {
 
         UserTokenEntity userToken =
-                tokenMapper.selectOne(new QueryWrapper<UserTokenEntity>()
-                        .eq("token", token)
-                        .ge("create_time", LocalDateTime.now().minusDays(30)));
+                tokenMapper.queryByTokenAndTime(token,LocalDateTime.now().minusDays(30));
 
         SearchEntity entity = new SearchEntity();
         entity.setDelete(true);

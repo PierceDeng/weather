@@ -91,10 +91,8 @@ public class WeatherServiceImpl implements WeatherService {
         if(entity == null) return null;
 
         if(type == 1){
-            UserTokenEntity userToken =
-                    tokenMapper.selectOne(new QueryWrapper<UserTokenEntity>()
-                    .eq("token", token)
-                    .ge("create_time", LocalDateTime.now().minusDays(30)));
+            UserTokenEntity userToken = tokenMapper
+                    .queryByTokenAndTime(token,LocalDateTime.now().minusDays(30));
             SearchEntity search = new SearchEntity();
             search.setText(city);
             search.setUserId(userToken.getUserId());

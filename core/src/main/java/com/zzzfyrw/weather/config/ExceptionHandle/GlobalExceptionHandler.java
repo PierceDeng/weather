@@ -11,6 +11,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public Response exHandler(Exception e){
+        e.printStackTrace();
         return ResponseBuilder.fail(ErrEnum.未知异常.getMsg(),ErrEnum.未知异常.getCode());
     }
 
