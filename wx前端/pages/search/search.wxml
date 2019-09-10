@@ -9,12 +9,12 @@
     <view class="search-input">
       <image class="search-city-img" src="/img/icon/city.png"></image>
       <view class="search-line"></view>
-      <input class="search-content" placeholder="请输入城市名称" value="{{searchInfo}}" bindblur="updateSearchValue"></input>
+      <input class="search-content" placeholder="请输入城市名称" value="{{searchInfo}}" bindinput="updateSearchValue"></input>
       <view class="search-img-bg" bindtap="clickSearch">
         <image src="/img/icon/search.png"></image>
       </view>
     </view>
-    <view class="search-warn">*填写城市名称时，例如北京、北京市均可</view>
+    <view class="search-warn">*填写城市名称，例如北京、北京市均可</view>
   </view>
 
 

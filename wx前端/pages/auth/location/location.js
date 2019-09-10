@@ -29,6 +29,7 @@ Page({
         var hours = dateUtil.dateHours(res.data.update_time);
         if(hours >= 8){
           that.getWeather(that);
+          return ;
         }
         wx.reLaunch({
           url: '/pages/index/index',
@@ -50,6 +51,12 @@ Page({
       url: '/pages/index/index',
     })
   },
+  cityFail:function(){
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
+  },
+
   getWeather: function (that){
     var map = new bmap.BMapWX({
       ak: "0OzKEwjC5V2xvrdNGwLyaHOlHofrUXV0"
@@ -60,6 +67,7 @@ Page({
         var opts = {
           data: { city: '北京' },
           success: that.citySuccess,
+          fail: that.cityFail,
           method: 'GET'
         }
         httpReuqest.request("weather/getWeather", opts);
@@ -70,6 +78,7 @@ Page({
         var opts = {
           data: { city: city },
           success: that.citySuccess,
+          fail: that.cityFail,
           method: 'GET'
         }
         httpReuqest.request("weather/getWeather", opts);

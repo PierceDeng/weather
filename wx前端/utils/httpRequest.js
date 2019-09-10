@@ -31,7 +31,7 @@ function request(path,options){
       if(options.fail == null)
         return failCallBack(res);
       else
-        return options.fail;
+        return options.fail();
     },
     complete: res =>{
       if(options.complete == null)

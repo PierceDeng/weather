@@ -79,7 +79,8 @@ Page({
         title: '请先填写城市名称',
         icon:'none',
         duration:1500
-      })
+      });
+      return ;
     }
     this.requestWeather(text,1);
   },

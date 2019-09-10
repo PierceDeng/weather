@@ -1,5 +1,6 @@
 //index.js
 import uCharts from '../../utils/charts/u-charts.min.js';
+import seasonUtil from '../../utils/season.js';
 
 const app = getApp();
 var _self;
@@ -24,12 +25,15 @@ Page({
     todayCloudSpeed: '',
     todayWeek: '',
     weekDay:[],
+    seasonBg:"",
   },
   onLoad:function(options){
+    var bg = seasonUtil.getSeason();
     this.setData({
       windowHeight: app.globalData.windowH * 2,
       windowWidth: app.globalData.windowW+15,
-      navH:app.globalData.navHeight*2,
+      navH:app.globalData.navHeight*2 + 5,
+      seasonBg: bg,
     });
   },
   onShow:function(){
@@ -39,11 +43,7 @@ Page({
       success: function (res) {
         _self.initData(res);
       },
-      fail: function () {
-        wx.reLaunch({
-          url: '/pages/auth/location/location',
-        })
-      }
+
     });
   },
   initData:function(res){

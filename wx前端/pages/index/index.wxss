@@ -11,8 +11,11 @@ Page{
 
 .weather-bg{
   width: calc(100%-20rpx);
-  height: 700rpx;
-  background-color: #48D1CC;
+  height: 900rpx;
+  /* background-color: #48D1CC; */
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
   margin: 10rpx 10rpx 10rpx 10rpx;
   border-radius: 10rpx;
 }
@@ -75,7 +78,7 @@ Page{
   width: 46.5%;
   line-height: 60rpx;
   text-align: right;
-  color: #00008B;
+  color: #000;
   font-size: 32rpx;
 }
 
@@ -103,9 +106,9 @@ Page{
 }
 
 .weather-info{
-  margin-top: 40rpx;
+  margin-top: 130rpx;
   text-align: center;
-  color: #00008B;
+  color: #000;
   font-size: 28rpx;
 }
 
@@ -172,7 +175,7 @@ Page{
 }
 
 .weather-time-info{
-  background-color: #F5F5F5;
+  background-color: #F8F8FF;
   width: calc(100% - 20rpx);
   height: 450rpx;
   margin: 5rpx 10rpx 0 10rpx;
@@ -190,8 +193,7 @@ Page{
 
 .time-info-line{
   width: 100%;
-  border-bottom: 1px solid #C0C0C0;
-
+  border-bottom: 1px solid #000;
 }
 
 .canvas-charts{

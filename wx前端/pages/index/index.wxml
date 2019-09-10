@@ -4,7 +4,7 @@
   <nav-title left='{{left}}' bind:go="toMyPage"></nav-title>
 
   <scroll-view scroll-y="true" style="height: 100%;">
-    <view class="weather-bg" style="margin-top:{{navH}}rpx">
+    <view class="weather-bg" style="margin-top:{{navH}}rpx;background-image:url({{seasonBg}})">
       <view class="weather-location">
         <image src="/img/icon/location.png" bindtap="changeCity"></image>
         <view class="weather-address">{{localtion}}</view>
@@ -13,7 +13,8 @@
         <view class="today-tem">{{todayTem}}</view>
         <view class="today-icon">°</view>
       </view>
-      <view class="weather-show">
+      <view style="margin-top:50rpx;">
+              <view class="weather-show">
         <view class="weather-left">{{todayWeather}}</view>
         <view class="weather-y"></view>
         <image src="/img/weather/{{weatherIcon}}.png"></image>
@@ -23,6 +24,8 @@
         <view class="weather-y"></view>
         <view class="weather-sky"><span>{{todaySkyNumber}} {{todaySky}}</span></view>
       </view>
+      </view>
+
       <view class="weather-info" >
         <text decode="{{true}}">湿度 {{todayHumidity}}%&nbsp;&nbsp;&nbsp;{{todayCloud}} {{dateTool.windFormat(todayCloudSpeed)}}&nbsp;&nbsp;&nbsp;{{todayWeek}}</text>
       </view>
