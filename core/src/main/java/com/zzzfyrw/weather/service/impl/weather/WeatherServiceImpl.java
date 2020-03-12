@@ -1,16 +1,19 @@
-package com.zzzfyrw.weather.impl.weather;
+package com.zzzfyrw.weather.service.impl.weather;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.zzzfyrw.business.weather.WeatherService;
 import com.zzzfyrw.common.dto.WeatherDto;
 import com.zzzfyrw.common.util.weather.WeatherApi;
-import com.zzzfyrw.common.util.weather.entity.*;
+import com.zzzfyrw.common.util.weather.entity.ChartData;
+import com.zzzfyrw.common.util.weather.entity.Serie;
+import com.zzzfyrw.common.util.weather.entity.WeatherHours;
+import com.zzzfyrw.common.util.weather.entity.WeatherIndex;
 import com.zzzfyrw.repository.dao.SearchMapper;
 import com.zzzfyrw.repository.dao.SysCityMapper;
 import com.zzzfyrw.repository.dao.UserTokenMapper;
 import com.zzzfyrw.repository.entity.SearchEntity;
 import com.zzzfyrw.repository.entity.SysCityEntity;
 import com.zzzfyrw.repository.entity.UserTokenEntity;
+import com.zzzfyrw.weather.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService {
     private UserTokenMapper tokenMapper;
 
     @Override
-    public WeatherDto getWeatherByCity(String city)throws Exception {
+    public WeatherDto getWeatherByCity(String city){
 
         WeatherDto dto = WeatherApi.getWeatherByCity(city);
         dto.getData().forEach(k ->{
@@ -82,7 +85,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public WeatherDto authWeatherByCity(String city, Integer type,String token) throws Exception {
+    public WeatherDto authWeatherByCity(String city, Integer type,String token){
 
         SysCityEntity entity =
                 cityMapper.selectOne(new QueryWrapper<SysCityEntity>()

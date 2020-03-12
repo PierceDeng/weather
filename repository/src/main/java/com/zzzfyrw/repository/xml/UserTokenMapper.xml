@@ -18,7 +18,7 @@
 
     <select id="queryByTokenAndTime" resultMap="BaseResultMap">
         SELECT
-        <include refid="Base_Column_List" />
+            <include refid="Base_Column_List" />
         FROM user_token
         WHERE token = #{token} AND create_time &gt;= #{time}
         ORDER BY create_time DESC

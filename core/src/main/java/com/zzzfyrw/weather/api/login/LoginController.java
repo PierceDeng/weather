@@ -1,9 +1,9 @@
 package com.zzzfyrw.weather.api.login;
 
-import com.zzzfyrw.business.user.LoginService;
 import com.zzzfyrw.common.response.ErrEnum;
 import com.zzzfyrw.common.response.Response;
 import com.zzzfyrw.common.response.ResponseBuilder;
+import com.zzzfyrw.weather.service.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

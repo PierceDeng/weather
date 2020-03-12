@@ -1,9 +1,9 @@
 package com.zzzfyrw.weather.api.search;
 
-import com.zzzfyrw.business.search.SearchService;
 import com.zzzfyrw.common.annotation.AuthValid;
 import com.zzzfyrw.common.response.Response;
 import com.zzzfyrw.common.response.ResponseBuilder;
+import com.zzzfyrw.weather.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

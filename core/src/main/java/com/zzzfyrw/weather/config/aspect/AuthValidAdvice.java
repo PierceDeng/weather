@@ -1,7 +1,7 @@
 package com.zzzfyrw.weather.config.aspect;
 
-import com.zzzfyrw.business.user.UserTokenService;
-import com.zzzfyrw.weather.config.ExceptionHandle.AuthException;
+import com.zzzfyrw.weather.config.exceptionHandle.AuthException;
+import com.zzzfyrw.weather.service.UserTokenService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

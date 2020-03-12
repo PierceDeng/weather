@@ -1,12 +1,12 @@
 package com.zzzfyrw.weather.api.weather;
 
-import com.zzzfyrw.business.weather.WeatherService;
 import com.zzzfyrw.common.annotation.AuthValid;
 import com.zzzfyrw.common.dto.SearchCityParam;
 import com.zzzfyrw.common.dto.WeatherDto;
 import com.zzzfyrw.common.response.ErrEnum;
 import com.zzzfyrw.common.response.Response;
 import com.zzzfyrw.common.response.ResponseBuilder;
+import com.zzzfyrw.weather.service.WeatherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class WeatherController {
     @GetMapping("getWeather")
     @ApiOperation(value = "请求每周天气")
     @ApiImplicitParam(name = "city",value = "city名字，不要带市",required = true)
-    public Response<WeatherDto> getWeather(String city)throws Exception{
+    public Response<WeatherDto> getWeather(String city){
         return ResponseBuilder.ok(weatherService.getWeatherByCity(city));
     }
 
@@ -34,7 +34,7 @@ public class WeatherController {
     @AuthValid
     @ApiOperation(value = "请求每周天气")
     public Response<WeatherDto> authWeather(@RequestBody SearchCityParam param,
-                                               HttpServletRequest request)throws Exception{
+                                               HttpServletRequest request){
         String token = request.getHeader("token");
         WeatherDto dto = weatherService.authWeatherByCity(param.getCity(), param.getType(), token);
         if(dto == null)

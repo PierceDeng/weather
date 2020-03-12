@@ -1,10 +1,10 @@
-package com.zzzfyrw.weather.impl.user;
+package com.zzzfyrw.weather.service.impl.user;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zzzfyrw.business.user.UserTokenService;
 import com.zzzfyrw.common.util.TokenUtil;
 import com.zzzfyrw.repository.dao.UserTokenMapper;
 import com.zzzfyrw.repository.entity.UserTokenEntity;
+import com.zzzfyrw.weather.service.UserTokenService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserTokenEntity> implements UserTokenService {
 
     @Override
-    public String insert(Long userId)throws Exception {
+    public String insert(Long userId) {
         UserTokenEntity entity = new UserTokenEntity();
         entity.setUserId(userId);
         entity.setToken(TokenUtil.getToken()+userId);
@@ -25,7 +25,7 @@ public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken
     }
 
     @Override
-    public Long queryUserIdByToken(String token)throws Exception {
+    public Long queryUserIdByToken(String token) {
         UserTokenEntity entity = this.baseMapper
                 .queryByTokenAndTime(token,LocalDateTime.now().minusDays(30));
 

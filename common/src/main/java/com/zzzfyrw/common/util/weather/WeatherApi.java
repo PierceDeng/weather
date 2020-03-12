@@ -10,9 +10,11 @@ import java.util.TreeMap;
 
 public final class WeatherApi {
 
-    public static WeatherDto getWeatherByCity(String cityName)throws Exception{
-        String url = "https://www.tianqiapi.com/api/";
+    public static WeatherDto getWeatherByCity(String cityName){
+        String url = "https://www.tianqiapi.com/api";
         SortedMap<String,String> params = new TreeMap<>();
+        params.put("appid","58514123");
+        params.put("appsecret","nPqMKBC3");
         params.put("version","v1");
         params.put("city",cityName);
         String result = OkHttpUtil.get(url, params);

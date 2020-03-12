@@ -11,6 +11,10 @@ import java.io.File;
 
 public class MyBatisGenerator{
 
+    static String url = "jdbc:mysql://rm-bp1r7od3hc4rh63amuo.mysql.rds.aliyuncs.com:3306/weather?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=true";
+    static String user = "prsandd";
+    static String pwd = "Dpz440504";
+
     public static void main(String[] args) {
         AutoGenerator generator = new AutoGenerator();
 
@@ -25,13 +29,13 @@ public class MyBatisGenerator{
         config.setXmlName("%sMapper");
         config.setBaseColumnList(true);
         config.setBaseResultMap(true);
+        config.setFileOverride(true);
 
         DataSourceConfig source = new DataSourceConfig();
-        source.setUrl("jdbc:mysql://127.0.0.1:3306/weather?useUnicode=true" +
-                "&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=true");
+        source.setUrl(url);
         source.setDriverName("com.mysql.cj.jdbc.Driver");
-        source.setUsername("root");
-        source.setPassword("root");
+        source.setUsername(user);
+        source.setPassword(pwd);
         source.setDbType(DbType.MYSQL);
 
         PackageConfig packageConfig = new PackageConfig();
@@ -43,6 +47,9 @@ public class MyBatisGenerator{
         StrategyConfig strategy = new StrategyConfig();
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setRestControllerStyle(true);
+        strategy.setEntityTableFieldAnnotationEnable(true);
+        strategy.setEntityLombokModel(true);
 
         InjectionConfig injectionConfig = new InjectionConfig() {
             @Override

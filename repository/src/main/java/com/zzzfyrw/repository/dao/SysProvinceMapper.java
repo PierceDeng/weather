@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author dpz
- * @since 2019-08-09
+ * @since 2020-03-12
  */
 public interface SysProvinceMapper extends BaseMapper<SysProvinceEntity> {
 

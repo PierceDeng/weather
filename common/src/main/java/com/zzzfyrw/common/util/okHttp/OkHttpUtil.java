@@ -9,6 +9,7 @@
  */
 package com.zzzfyrw.common.util.okHttp;
 
+
 import okhttp3.*;
 
 import java.io.IOException;
@@ -43,43 +44,43 @@ public class OkHttpUtil {
     }
 
     public static String get(String url){
-        Request request = buildRequest(url,HttpMethodEnum.GET,null,null,null);
+        Request request = buildRequest(url, HttpMethodEnum.GET,null,null,null);
         return doRequest(request);
     }
 
 
     public static String get(String url,Map<String,String> params){
-        Request request = buildRequest(url,HttpMethodEnum.GET,params,null,null);
+        Request request = buildRequest(url, HttpMethodEnum.GET,params,null,null);
         return doRequest(request);
     }
 
     public static String get(String url,Map<String,String> params,Map<String,String> headers){
-        Request request = buildRequest(url,HttpMethodEnum.GET,params,null,headers);
+        Request request = buildRequest(url, HttpMethodEnum.GET,params,null,headers);
         return doRequest(request);
     }
 
     public static String post(String url){
-        Request request = buildRequest(url,HttpMethodEnum.POST,null,null,null);
+        Request request = buildRequest(url, HttpMethodEnum.POST,null,null,null);
         return doRequest(request);
     }
 
     public static String post(String url,String json){
-        Request request = buildRequest(url,HttpMethodEnum.POST,null,json,null);
+        Request request = buildRequest(url, HttpMethodEnum.POST,null,json,null);
         return doRequest(request);
     }
 
     public static String post(String url,String json,Map<String,String> headers){
-        Request request = buildRequest(url,HttpMethodEnum.POST,null,json,headers);
+        Request request = buildRequest(url, HttpMethodEnum.POST,null,json,headers);
         return doRequest(request);
     }
 
     public static String post(String url,Map<String,String> params){
-        Request request = buildRequest(url,HttpMethodEnum.POST,params,null,null);
+        Request request = buildRequest(url, HttpMethodEnum.POST,params,null,null);
         return doRequest(request);
     }
 
     public static String post(String url,Map<String,String> params,Map<String,String> headers){
-        Request request = buildRequest(url,HttpMethodEnum.POST,params,null,headers);
+        Request request = buildRequest(url, HttpMethodEnum.POST,params,null,headers);
         return doRequest(request);
     }
 
@@ -97,7 +98,7 @@ public class OkHttpUtil {
         return result;
     }
 
-    private static Request buildRequest(String url,HttpMethodEnum methodEnum,Map<String,String> params,String json,Map<String,String> headerMap){
+    private static Request buildRequest(String url, HttpMethodEnum methodEnum, Map<String,String> params, String json, Map<String,String> headerMap){
         Request.Builder builder = new Request.Builder().url(url);
         switch (methodEnum){
             case GET:
@@ -143,7 +144,9 @@ public class OkHttpUtil {
         if(map != null){
             boolean first = true;
             StringBuilder buffer = new StringBuilder();
-            buffer.append("?");
+            if(!url.contains("?")){
+                buffer.append("?");
+            }
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if(!first)
                     buffer.append("&");

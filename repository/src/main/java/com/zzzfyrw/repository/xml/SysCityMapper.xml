@@ -4,25 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zzzfyrw.repository.entity.SysCityEntity">
-        <result column="id" property="id" />
-        <result column="cityId" property="cityId" />
+        <id column="id" property="id" />
+        <result column="city_id" property="cityId" />
         <result column="father" property="father" />
         <result column="city" property="city" />
-        <result column="mergerName" property="mergerName" />
-        <result column="shortName" property="shortName" />
-        <result column="mergerShortName" property="mergerShortName" />
-        <result column="levelType" property="levelType" />
-        <result column="pinyin" property="pinyin" />
-        <result column="jianpin" property="jianpin" />
-        <result column="firstChar" property="firstChar" />
+        <result column="merger_name" property="mergerName" />
+        <result column="short_name" property="shortName" />
+        <result column="merger_short_name" property="mergerShortName" />
+        <result column="level_type" property="levelType" />
+        <result column="pin_yin" property="pinYin" />
+        <result column="jian_pin" property="jianPin" />
+        <result column="first_char" property="firstChar" />
         <result column="lng" property="lng" />
         <result column="lat" property="lat" />
-        <result column="remarks" property="remarks" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, cityId, father, city, mergerName, shortName, mergerShortName, levelType, pinyin, jianpin, firstChar, lng, lat, remarks
+        id, city_id, father, city, merger_name, short_name, merger_short_name, level_type, pin_yin, jian_pin, first_char, lng, lat
     </sql>
 
 </mapper>

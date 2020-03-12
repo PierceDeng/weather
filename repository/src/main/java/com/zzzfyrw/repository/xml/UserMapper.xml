@@ -5,17 +5,17 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zzzfyrw.repository.entity.UserEntity">
         <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
         <result column="open_id" property="openId" />
         <result column="nick" property="nick" />
         <result column="photo" property="photo" />
         <result column="sex" property="sex" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, open_id, nick, photo, sex, create_time, update_time
+        id, create_time, update_time, open_id, nick, photo, sex
     </sql>
 
 </mapper>

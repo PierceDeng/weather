@@ -1,8 +1,12 @@
 package com.zzzfyrw.repository.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -10,165 +14,54 @@ import java.io.Serializable;
  * </p>
  *
  * @author dpz
- * @since 2019-08-09
+ * @since 2020-03-12
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
 @TableName("sys_area")
 public class SysAreaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId("id")
     private String id;
 
-    @TableField("areaId")
+    @TableField("area_id")
     private String areaId;
 
+    @TableField("father")
     private String father;
 
+    @TableField("area")
     private String area;
 
-    @TableField("mergerName")
+    @TableField("merger_name")
     private String mergerName;
 
-    @TableField("shortName")
+    @TableField("short_name")
     private String shortName;
 
-    @TableField("mergerShortName")
+    @TableField("merger_short_name")
     private String mergerShortName;
 
-    @TableField("levelType")
+    @TableField("level_type")
     private String levelType;
 
-    @TableField("pinYin")
+    @TableField("pin_yin")
     private String pinYin;
 
-    @TableField("jianPin")
+    @TableField("jian_pin")
     private String jianPin;
 
-    @TableField("firstChar")
+    @TableField("first_char")
     private String firstChar;
 
+    @TableField("lng")
     private String lng;
 
+    @TableField("lat")
     private String lat;
 
-    private String remarks;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getAreaId() {
-        return areaId;
-    }
-
-    public void setAreaId(String areaId) {
-        this.areaId = areaId;
-    }
-    public String getFather() {
-        return father;
-    }
-
-    public void setFather(String father) {
-        this.father = father;
-    }
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-    public String getMergerName() {
-        return mergerName;
-    }
-
-    public void setMergerName(String mergerName) {
-        this.mergerName = mergerName;
-    }
-    public String getShortName() {
-        return shortName;
-    }
-
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
-    }
-    public String getMergerShortName() {
-        return mergerShortName;
-    }
-
-    public void setMergerShortName(String mergerShortName) {
-        this.mergerShortName = mergerShortName;
-    }
-    public String getLevelType() {
-        return levelType;
-    }
-
-    public void setLevelType(String levelType) {
-        this.levelType = levelType;
-    }
-    public String getPinYin() {
-        return pinYin;
-    }
-
-    public void setPinYin(String pinYin) {
-        this.pinYin = pinYin;
-    }
-    public String getJianPin() {
-        return jianPin;
-    }
-
-    public void setJianPin(String jianPin) {
-        this.jianPin = jianPin;
-    }
-    public String getFirstChar() {
-        return firstChar;
-    }
-
-    public void setFirstChar(String firstChar) {
-        this.firstChar = firstChar;
-    }
-    public String getLng() {
-        return lng;
-    }
-
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    @Override
-    public String toString() {
-        return "SysAreaEntity{" +
-        "id=" + id +
-        ", areaId=" + areaId +
-        ", father=" + father +
-        ", area=" + area +
-        ", mergerName=" + mergerName +
-        ", shortName=" + shortName +
-        ", mergerShortName=" + mergerShortName +
-        ", levelType=" + levelType +
-        ", pinYin=" + pinYin +
-        ", jianPin=" + jianPin +
-        ", firstChar=" + firstChar +
-        ", lng=" + lng +
-        ", lat=" + lat +
-        ", remarks=" + remarks +
-        "}";
-    }
 }

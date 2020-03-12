@@ -29,6 +29,7 @@ Page({
   },
   onLoad:function(options){
     var bg = seasonUtil.getSeason();
+    console.log(bg);
     this.setData({
       windowHeight: app.globalData.windowH * 2,
       windowWidth: app.globalData.windowW+15,
@@ -166,9 +167,12 @@ Page({
     wx.showModal(opts);
   },
   changeCity:function(){
-    wx.navigateTo({
+    // wx.navigateTo({
+    //   url: '/pages/search/search',
+    // })
+    wx.switchTab({
       url: '/pages/search/search',
-    })
+    });
   }
 
 })

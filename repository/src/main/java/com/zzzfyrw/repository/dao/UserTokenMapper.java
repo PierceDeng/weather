@@ -4,9 +4,7 @@ import com.zzzfyrw.repository.entity.UserTokenEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * <p>
@@ -14,10 +12,10 @@ import java.util.List;
  * </p>
  *
  * @author dpz
- * @since 2019-07-31
+ * @since 2020-03-12
  */
 public interface UserTokenMapper extends BaseMapper<UserTokenEntity> {
 
-    UserTokenEntity queryByTokenAndTime(@Param("token") String token, @Param("time")LocalDateTime time);
+    UserTokenEntity queryByTokenAndTime(@Param("token") String token, @Param("time") LocalDateTime time);
 
 }

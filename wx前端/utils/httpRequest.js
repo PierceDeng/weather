@@ -1,8 +1,9 @@
 
-const url = "http://127.0.0.1:8888/";
+const url = "http://114.55.250.34:10001/";
+// const url = "http://127.0.0.1:8888/";
 const method = "POST";
 const responseType = "text";
-var header = {
+const header = {
   "Content-Type": "application/json;charset=UTF-8"
 }
 
