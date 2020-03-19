@@ -2,7 +2,7 @@ spring:
   application:
     name: sky
   profiles:
-    active: dev
+    active: prd
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

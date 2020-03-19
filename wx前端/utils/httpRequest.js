@@ -1,5 +1,5 @@
 
-const url = "http://114.55.250.34:10001/";
+const url = "https://zzzfyrw.cn/";
 // const url = "http://127.0.0.1:8888/";
 const method = "POST";
 const responseType = "text";

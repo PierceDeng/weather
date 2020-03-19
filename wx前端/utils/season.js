@@ -1,9 +1,9 @@
 
 
-var summer = "../../img/season/summer.jpg"
-var spring = "../../img/season/spring.jpg"
-var autumn = "../../img/season/autumn.jpg"
-var winter = "../../img/season/winter.jpg"
+var summer = "https://zzzfyrw-test.oss-cn-hangzhou.aliyuncs.com/weather/summer.jpg"
+var spring = "https://zzzfyrw-test.oss-cn-hangzhou.aliyuncs.com/weather/spring.jpg"
+var autumn = "https://zzzfyrw-test.oss-cn-hangzhou.aliyuncs.com/weather/autumn.jpg"
+var winter = "https://zzzfyrw-test.oss-cn-hangzhou.aliyuncs.com/weather/winter.jpg"
 
 
 function getSeason(){

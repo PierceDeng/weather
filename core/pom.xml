@@ -48,6 +48,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <finalName>weather-server</finalName>
                     <mainClass>com.zzzfyrw.weather.WeatherApplication</mainClass>
                 </configuration>
                 <executions>

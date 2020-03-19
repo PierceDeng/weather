@@ -92,7 +92,7 @@ Page{
 
 .weather-sky{
   margin-top: 10rpx;
-  width: 100rpx;
+  width: 130rpx;
   height: 50rpx;
   border-radius: 10rpx;
   display: flex;
